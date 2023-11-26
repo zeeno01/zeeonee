@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('https://telegra.ph/file/09d31991c73f6d5c6ca05.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header, nav, section, aside, footer {
+            margin: 10px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        header img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 10px;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 8px 16px;
+            background-color: #000;
+            color: white;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #000;
+        }
+
+        .social-buttons {
+            margin-top: 20px;
+        }
+
+        .social-buttons a {
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: none;
+            background-color: #000;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-buttons a:hover {
+            background-color: #000;
+        }
+
+        @media (max-width: 600px) {
+            nav li {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Additional styling for the typing animation */
+        #typing-bio::after {
+            content: "|";
+            animation: blink-caret 0.7s infinite;
+        }
+
+        @keyframes blink-caret {
+            50% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <title>call me Zee</title>
+</head>
+<body>
+    <header>
+        <img src="https://telegra.ph/file/975a5cf27e7c077c3ff35.jpg" alt="Profile Picture">
+        <h1 id="current-time"></h1>
+        <script>
+            function updateClock() {
+                var now = new Date();
+                var hours = now.getHours();
+                var minutes = now.getMinutes();
+                var seconds = now.getSeconds();
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                var currentTime = hours + ":" + minutes + ":" + seconds;
+                document.getElementById('current-time').innerText = currentTime;
+            }
+
+            setInterval(updateClock, 1000);
+            updateClock();
+        </script>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#">Zee still learning</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h2 id="main-content"></h2>
+        <script>
+            document.getElementById('main-content').innerText = new Date().toLocaleDateString();
+        </script>
+    </section>
+
+    <aside>
+        <h2>BIO</h2>
+        <p id="typing-bio"></p>
+        <script>
+            var bioText = "Hi, I'm Zee, I'm from Bandung and I'm 20 years old";
+            var bioContainer = document.getElementById('typing-bio');
+            var index = 0;
+
+            function typeBio() {
+                bioContainer.textContent += bioText[index];
+                index++;
+
+                if (index < bioText.length) {
+                    setTimeout(typeBio, 50); // Adjust the typing speed here (milliseconds)
+                } else {
+                    // Animation complete, reset index and clear text for repeating animation
+                    index = 0;
+                    setTimeout(clearBio, 1000); // Adjust the delay before clearing (milliseconds)
+                }
+            }
+
+            function clearBio() {
+                // Clear the text and start typing again
+                bioContainer.textContent = "";
+                setTimeout(typeBio, 1000); // Adjust the delay before starting to type again (milliseconds)
+            }
+
+            // Start the initial typing
+            typeBio();
+        </script>
+    </aside>
+
+    <footer>
+        <p>© 2023 Website Zee still learning</p>
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/zeeskuy77" target="_blank">Instagram</a>
+            <a href="https://wa.me/6282119088569" target="_blank">WhatsApp</a>
+        </div>
+    </footer>
+</body>
+</html>
